@@ -7,7 +7,8 @@ function GuessInput({guesses, setGuesses}) {
 
     const onSubmit = (event) => {
         event.preventDefault()
-        const nextGuesses = [...guesses, {id: window.crypto.randomUUID(), guess}]
+        if (guess.length < 5 || guess.length > 5) return
+        const nextGuesses = [...guesses, guess]
         setGuesses(nextGuesses)
         setGuess('')
     }
