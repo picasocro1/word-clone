@@ -12,7 +12,8 @@ function GuessResults({guesses}) {
                 <p key={rowIndex} className="guess">
                     {cols.map(
                         (_, colIndex) => (
-                            <span key={colIndex} className="cell">{guesses[rowIndex]?.[colIndex] || ''}</span>
+                            <span key={colIndex}
+                                  className={`cell ${guesses[rowIndex]?.results[colIndex].status}`}>{guesses[rowIndex]?.guess[colIndex] || ''}</span>
                         )
                     )}
                 </p>

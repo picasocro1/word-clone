@@ -1,14 +1,15 @@
 import React from "react";
+import {checkGuess} from '../../game-helpers'
 
-function GuessInput({guesses, setGuesses}) {
+function GuessInput({guesses, setGuesses, answer}) {
     const [guess, setGuess] = React.useState('')
 
     const formRef = React.useRef()
 
     const onSubmit = (event) => {
         event.preventDefault()
-        if (guess.length < 5 || guess.length > 5) return
-        const nextGuesses = [...guesses, guess]
+        if (guess.length !== 5) return
+        const nextGuesses = [...guesses, {guess, results: checkGuess(guess, answer)}]
         setGuesses(nextGuesses)
         setGuess('')
     }
