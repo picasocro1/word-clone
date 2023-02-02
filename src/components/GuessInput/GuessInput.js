@@ -1,7 +1,7 @@
 import React from "react";
 import {checkGuess} from '../../game-helpers'
 
-function GuessInput({guesses, setGuesses, answer}) {
+function GuessInput({guesses, setGuesses, answer, disabled}) {
     const [guess, setGuess] = React.useState('')
 
     const formRef = React.useRef()
@@ -14,7 +14,7 @@ function GuessInput({guesses, setGuesses, answer}) {
         setGuess('')
     }
 
-    return <form ref={formRef} className="guess-input-wrapper" onSubmit={onSubmit}>
+    return <form ref={formRef} className="guess-input-wrapper" onSubmit={onSubmit} disabled={disabled}>
         <label htmlFor="guess-input">Enter guess:</label>
         <input id="guess-input" type="text" minLength="5" maxLength="5" required value={guess} onChange={
             (event) => setGuess(event.target.value.toUpperCase())

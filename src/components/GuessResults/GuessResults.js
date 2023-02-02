@@ -3,8 +3,8 @@ import {range} from '../../utils'
 import {NUM_OF_GUESSES_ALLOWED} from '../../constants'
 
 function GuessResults({guesses}) {
-    const rows = range(0, NUM_OF_GUESSES_ALLOWED)
-    const cols = range(0, 5)
+    const rows = range(NUM_OF_GUESSES_ALLOWED)
+    const cols = range(5)
 
     return <div className="guess-results">
         {rows.map(
