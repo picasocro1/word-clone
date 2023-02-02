@@ -1,13 +1,14 @@
 import React from "react";
 
-function GuessInput() {
+function GuessInput({guesses, setGuesses}) {
     const [guess, setGuess] = React.useState('')
 
     const formRef = React.useRef()
 
     const onSubmit = (event) => {
         event.preventDefault()
-        console.log({guess: guess.toUpperCase()})
+        const nextGuesses = [...guesses, {id: window.crypto.randomUUID(), guess}]
+        setGuesses(nextGuesses)
         setGuess('')
     }
 
